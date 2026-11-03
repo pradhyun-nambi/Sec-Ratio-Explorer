@@ -1,10 +1,11 @@
 import json
+import os
 import time
 from pathlib import Path
 
 import requests
 
-HEADERS = {"Pradhyun Nambi": "pradhyun.v.nambi@gmail.com"}
+HEADERS = {"User-Agent": os.environ.get("SEC_USER_AGENT", "Pradhyun Nambi your.email@example.com")}
 URL = "https://data.sec.gov/api/xbrl/companyfacts/CIK{cik:010d}.json"
 
 
@@ -25,5 +26,7 @@ def get_company_facts(cik, cache_dir="data/cache"):
 
 
 if __name__ == "__main__":
+    print("User-Agent being sent:", HEADERS["User-Agent"])
     facts = get_company_facts(200406)
     print(facts["entityName"], "-", len(facts["facts"]["us-gaap"]), "us-gaap tags")
+    
