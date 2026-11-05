@@ -34,3 +34,5 @@ JNJ, PFE, MRK, LLY, JPM (JPM is a bank, so current ratio and gross margin will b
 | Long-term debt (noncurrent) | 39.44 | | |
 - MRK reports R&D as ResearchAndDevelopmentExpense (not the ExcludingAcquiredInProcessCost tag JNJ uses); it may include acquired IPR&D, so proxy operating margin is less comparable between MRK and JNJ.
 - ROE uses year-end equity, not average equity.
+- MRK reports R&D as ResearchAndDevelopmentExpense (not the ExcludingAcquiredInProcessCost tag JNJ uses); it may include acquired IPR&D, so proxy operating margin is less comparable between MRK and JNJ.
+- ROE uses year-end equity, not average equity.
