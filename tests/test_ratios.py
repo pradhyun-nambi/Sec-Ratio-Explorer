@@ -43,3 +43,11 @@ def test_bank_style_missing_inputs_give_nan():
     r = compute_ratios(make_inputs(current_assets=np.nan, current_liabilities=np.nan,
                                    cost_of_sales=np.nan, gross_profit=np.nan)).iloc[0]
     assert np.isnan(r["current_ratio"]) and np.isnan(r["gross_margin"])
+
+
+from src.extract import get_inputs
+
+
+def test_empty_filing_gives_empty_ratios():
+    inputs = get_inputs({"facts": {"us-gaap": {}}})
+    assert compute_ratios(inputs).empty
