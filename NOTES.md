@@ -19,20 +19,24 @@ JNJ, PFE, MRK, LLY, JPM (JPM is a bank, so current ratio and gross margin will b
 - Cost of sales: CostOfGoodsAndServicesSold; older years use CostOfGoodsSold (JNJ switched tags)
 - Operating income: OperatingIncomeLoss stops in 2014. JNJ has no operating income line, so I use a proxy: GrossProfit - R&D - SG&A. It excludes items like acquired in-process R&D and restructuring.
 - Equity: StockholdersEquity is missing for JNJ. I use StockholdersEquityIncludingPortionAttributableToNoncontrollingInterest (81.54B in 2025, matches assets minus liabilities).
-- Debt: still to settle. Need to check JNJ's balance sheet in the 10-K to see whether DebtCurrent already includes the current portion of long-term debt.
+- Debt: settled, see JNJ findings below (loans and notes payable + long-term debt).
 
 ## Verification: JNJ fiscal 2025 (tool vs. 10-K)
 | Line item | Tool (B) | 10-K (B) | Match? |
 |---|---|---|---|
-| Revenue (sales to customers) | 94.19 | | |
-| Net earnings | 26.80 | | |
-| Earnings before provision for taxes | 32.58 | | |
-| Total current assets | 55.62 | | |
-| Total current liabilities | 54.13 | | |
-| Total shareholders' equity | 81.54 | | |
-| Loans and notes payable (current debt) | 8.50 | | |
-| Long-term debt (noncurrent) | 39.44 | | |
+| Revenue (sales to customers) | 94.19 | 94.193 | Yes |
+| Net earnings | 26.80 | 26.804 | Yes |
+| Earnings before provision for taxes | 32.58 | 32.581 | Yes |
+| Total current assets | 55.62 | 55.624 | Yes |
+| Total current liabilities | 54.13 | 54.126 | Yes |
+| Total shareholders' equity | 81.54 | 81.544 (derived: assets - liabilities) | Yes |
+| Loans and notes payable (current debt) | 8.50 | 8.495 | Yes |
+| Long-term debt (noncurrent) | 39.44 | 39.438 | Yes |
 - MRK reports R&D as ResearchAndDevelopmentExpense (not the ExcludingAcquiredInProcessCost tag JNJ uses); it may include acquired IPR&D, so proxy operating margin is less comparable between MRK and JNJ.
 - ROE uses year-end equity, not average equity.
-- MRK reports R&D as ResearchAndDevelopmentExpense (not the ExcludingAcquiredInProcessCost tag JNJ uses); it may include acquired IPR&D, so proxy operating margin is less comparable between MRK and JNJ.
-- ROE uses year-end equity, not average equity.
+
+
+## JNJ findings
+- Debt definition: loans and notes payable (includes the ~2.0B current portion of bonds) + long-term debt = 47.93B. No separate current-portion line on the balance sheet.
+- 2023 net earnings (35.15B) include 21.8B from discontinued operations, so 2023 net margin and ROE are inflated.
+- 2025 net earnings are boosted by 7.2B of other income (2024 had 4.7B of other expense). Single-year ratios are noisy.
