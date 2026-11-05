@@ -26,7 +26,7 @@ def get_company_facts(cik, cache_dir="data/cache"):
 
 
 if __name__ == "__main__":
-    print("User-Agent being sent:", HEADERS["User-Agent"])
+    
     facts = get_company_facts(200406)
     print(facts["entityName"], "-", len(facts["facts"]["us-gaap"]), "us-gaap tags")
     
