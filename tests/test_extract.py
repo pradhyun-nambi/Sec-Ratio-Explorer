@@ -37,3 +37,17 @@ def test_ignores_short_periods_labeled_fy():
 def test_missing_tag_returns_empty():
     assert get_annual_values(make_facts([]), "DoesNotExist").empty
     
+
+from src.extract import get_series
+
+
+def test_get_series_fills_gaps_with_fallback_tag():
+    facts = {"facts": {"us-gaap": {
+        "NewTag": {"units": {"USD": [row("2024-12-29", 5, "2025-02-10", start="2024-01-01")]}},
+        "OldTag": {"units": {"USD": [
+            row("2023-12-31", 3, "2024-02-10", start="2023-01-01"),
+            row("2024-12-29", 99, "2025-02-10", start="2024-01-01"),
+        ]}},
+    }}}
+    s = get_series(facts, ["NewTag", "OldTag"])
+    assert list(s) == [3, 5]

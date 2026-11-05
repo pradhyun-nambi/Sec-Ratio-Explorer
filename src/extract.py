@@ -27,3 +27,39 @@ def get_annual_values(facts, tag, unit="USD"):
 
     df = df.sort_values("filed").drop_duplicates(subset="end", keep="last")
     return pd.Series(df["val"].astype(float).values, index=df["end"], name=tag).sort_index()
+
+def get_series(facts, tags):
+    """Try tags in priority order; later tags only fill years the earlier ones lack."""
+    result = None
+    for tag in tags:
+        s = get_annual_values(facts, tag)
+        if s.empty:
+            continue
+        result = s if result is None else result.combine_first(s)
+    if result is None:
+        return pd.Series(dtype="float64", index=pd.DatetimeIndex([]))
+    return result.sort_index()
+
+
+TAGS = {
+    "revenue": ["RevenueFromContractWithCustomerExcludingAssessedTax", "Revenues", "SalesRevenueNet"],
+    "cost_of_sales": ["CostOfGoodsAndServicesSold", "CostOfGoodsSold", "CostOfRevenue"],
+    "gross_profit": ["GrossProfit"],
+    "rd_expense": ["ResearchAndDevelopmentExpenseExcludingAcquiredInProcessCost"],
+    "sga_expense": ["SellingGeneralAndAdministrativeExpense"],
+    "operating_income": ["OperatingIncomeLoss"],
+    "pretax_income": ["IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest"],
+    "net_income": ["NetIncomeLoss"],
+    "current_assets": ["AssetsCurrent"],
+    "current_liabilities": ["LiabilitiesCurrent"],
+    "total_assets": ["Assets"],
+    "total_liabilities": ["Liabilities"],
+    "equity": ["StockholdersEquity", "StockholdersEquityIncludingPortionAttributableToNoncontrollingInterest"],
+    "long_term_debt_noncurrent": ["LongTermDebtNoncurrent"],
+    "debt_current": ["DebtCurrent"],
+}
+
+
+def get_inputs(facts):
+    """One row per fiscal year-end, one column per ratio input."""
+    return pd.DataFrame({name: get_series(facts, tags) for name, tags in TAGS.items()}).sort_index()
