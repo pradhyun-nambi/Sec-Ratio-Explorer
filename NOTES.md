@@ -32,3 +32,5 @@ JNJ, PFE, MRK, LLY, JPM (JPM is a bank, so current ratio and gross margin will b
 | Total shareholders' equity | 81.54 | | |
 | Loans and notes payable (current debt) | 8.50 | | |
 | Long-term debt (noncurrent) | 39.44 | | |
+- MRK reports R&D as ResearchAndDevelopmentExpense (not the ExcludingAcquiredInProcessCost tag JNJ uses); it may include acquired IPR&D, so proxy operating margin is less comparable between MRK and JNJ.
+- ROE uses year-end equity, not average equity.

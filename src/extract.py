@@ -45,7 +45,7 @@ TAGS = {
     "revenue": ["RevenueFromContractWithCustomerExcludingAssessedTax", "Revenues", "SalesRevenueNet"],
     "cost_of_sales": ["CostOfGoodsAndServicesSold", "CostOfGoodsSold", "CostOfRevenue"],
     "gross_profit": ["GrossProfit"],
-    "rd_expense": ["ResearchAndDevelopmentExpenseExcludingAcquiredInProcessCost"],
+    "rd_expense": ["ResearchAndDevelopmentExpenseExcludingAcquiredInProcessCost", "ResearchAndDevelopmentExpense"],
     "sga_expense": ["SellingGeneralAndAdministrativeExpense"],
     "operating_income": ["OperatingIncomeLoss"],
     "pretax_income": ["IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest"],
