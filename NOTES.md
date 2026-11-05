@@ -20,3 +20,15 @@ JNJ, PFE, MRK, LLY, JPM (JPM is a bank, so current ratio and gross margin will b
 - Operating income: OperatingIncomeLoss stops in 2014. JNJ has no operating income line, so I use a proxy: GrossProfit - R&D - SG&A. It excludes items like acquired in-process R&D and restructuring.
 - Equity: StockholdersEquity is missing for JNJ. I use StockholdersEquityIncludingPortionAttributableToNoncontrollingInterest (81.54B in 2025, matches assets minus liabilities).
 - Debt: still to settle. Need to check JNJ's balance sheet in the 10-K to see whether DebtCurrent already includes the current portion of long-term debt.
+
+## Verification: JNJ fiscal 2025 (tool vs. 10-K)
+| Line item | Tool (B) | 10-K (B) | Match? |
+|---|---|---|---|
+| Revenue (sales to customers) | 94.19 | | |
+| Net earnings | 26.80 | | |
+| Earnings before provision for taxes | 32.58 | | |
+| Total current assets | 55.62 | | |
+| Total current liabilities | 54.13 | | |
+| Total shareholders' equity | 81.54 | | |
+| Loans and notes payable (current debt) | 8.50 | | |
+| Long-term debt (noncurrent) | 39.44 | | |
