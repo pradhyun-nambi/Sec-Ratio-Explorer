@@ -8,7 +8,7 @@ How do liquidity, profitability, and leverage compare across large pharmaceutica
 Comparing companies means pulling the same line items from each filing and calculating ratios the same way. Companies often report the same item under different XBRL tags, so this is messier than it looks. This tool pulls public SEC data, computes six standard ratios, and puts the companies side by side, with the data caveats shown next to the numbers.
 
 ## Demo
-<!-- Add after deploying: Live app: https://your-app-link.streamlit.app/ -->
+Live app: https://sec-ratio-explorer-ktqq4hb3gbfnw3mvfor5vg.streamlit.app/
 <!-- Add a screenshot: save it as docs/screenshot.png, then uncomment the next line -->
 <!-- ![Dashboard screenshot](docs/screenshot.png) -->
 
@@ -93,3 +93,4 @@ export SEC_USER_AGENT="Your Name your.email@example.com"
 # Windows PowerShell
 $env:SEC_USER_AGENT = "Your Name your.email@example.com"
 ```
+
