@@ -14,6 +14,8 @@ Live app: https://sec-ratio-explorer-ktqq4hb3gbfnw3mvfor5vg.streamlit.app/
 
 Run it locally (see "Run it" below). Pick a fiscal year, view the comparison table, and chart any one ratio.
 
+Sample output: [Comparison memo](docs/memo.md)
+
 ## How it works
 1. **Fetch.** `src/fetch.py` downloads each company's `companyfacts` JSON from SEC EDGAR and caches it in `data/cache/`, so repeat runs don't hit the SEC.
 2. **Extract.** `src/extract.py` maps XBRL tags to the line items needed (revenue, cost of sales, R&D, SG&A, current assets and liabilities, net income, equity, debt) and builds one row per fiscal year. It uses fallback tags where companies differ.
@@ -93,4 +95,5 @@ export SEC_USER_AGENT="Your Name your.email@example.com"
 # Windows PowerShell
 $env:SEC_USER_AGENT = "Your Name your.email@example.com"
 ```
+
 
