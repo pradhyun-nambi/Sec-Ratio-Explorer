@@ -10,7 +10,7 @@ Comparing companies means pulling the same line items from each filing and calcu
 ## Demo
 Live app: https://sec-ratio-explorer-ktqq4hb3gbfnw3mvfor5vg.streamlit.app/
 <!-- Add a screenshot: save it as docs/screenshot.png, then uncomment the next line -->
-<!-- ![Dashboard screenshot](docs/screenshot.png) -->
+![Dashboard screenshot](docs/screenshot.png)
 
 Run it locally (see "Run it" below). Pick a fiscal year, view the comparison table, and chart any one ratio.
 
@@ -95,5 +95,6 @@ export SEC_USER_AGENT="Your Name your.email@example.com"
 # Windows PowerShell
 $env:SEC_USER_AGENT = "Your Name your.email@example.com"
 ```
+
 
 
